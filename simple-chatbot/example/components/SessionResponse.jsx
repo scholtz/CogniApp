@@ -22,7 +22,7 @@ export default class SessionResponse extends React.Component {
     const session_id = steps.session_id.value;
 
     
-    let ioClient = socketIOClient.connect("http://10.145.4.125:5000");
+    let ioClient = socketIOClient.connect("http://localhost:5000");
 
     ioClient.on('connect', () => {
       ioClient.emit('new_game_event', session_id, (state, message) => {
