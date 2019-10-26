@@ -3,6 +3,7 @@ from flask_socketio import SocketIO
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'SECRET_KEY'
+app.config['ENV'] = 'production'
 socketio = SocketIO(app)
 eeg_events = [
 	{
