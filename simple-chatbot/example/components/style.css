@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+}
+
+#canvas {
+    background-color: #ccddcc;
+    margin: 1em auto;
+}
+
+.ball {
+    background-color: black;
+    position: relative;
+    border-radius: 50%;
+}

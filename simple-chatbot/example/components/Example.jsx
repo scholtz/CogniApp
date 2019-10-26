@@ -1,10 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import ChatBot from '../../lib/index';
+import SessionResponse from './SessionResponse.jsx';
+import Game from './Game';
+
 
 const otherFontTheme = {
   background: '#f5f8fb',
-  fontFamily: 'Helvetica Neue',
+  fontFamily: 'Quicksand,sans-serif',
   headerBgColor: '#6e48aa',
   headerFontColor: '#fff',
   headerFontSize: '16px',
@@ -28,7 +31,7 @@ const steps = [
           { value: 3, label: 'Not good', trigger: '12' }
         ]
     },
-    {Watch
+    {
       id: '3',
       message: 'Glad to here it.',
       trigger: '6',
@@ -48,7 +51,8 @@ const steps = [
       options: [
           { value: 1, label: 'Healthy diet tips', trigger: '8' },
           { value: 2, label: 'Physical exercise tips', trigger: '4' },
-          { value: 3, label: 'Watch info videos', trigger: '10' }
+          { value: 3, label: 'Watch info videos', trigger: '10' },
+          { value: 4, label: 'Cognie Game', trigger: 'game_start' },
         ]
     },
     {
@@ -71,7 +75,8 @@ const steps = [
       id: '10',
       options: [
           { value: 1, label: 'Healthy diet', trigger: '5' },
-          { value: 2, label: 'Managing Multiple Sclerosis', trigger: '11' }
+          { value: 2, label: 'Managing Multiple Sclerosis', trigger: '11' },
+          { value: 3, label: 'Cognie Game', trigger: 'game_start' },
         ]
     },
     {
@@ -90,19 +95,42 @@ const steps = [
       id: '12',
       options: [
           { value: 1, label: 'Let\'s continue', trigger: '7' },
-          { value: 2, label: 'Thanks, enough for today', trigger: '13' }
+          { value: 2, label: 'Thanks, enough for today.', trigger: '13' }
         ]
     },
     {
       id: '13',
       message: 'See you soon.'
     },
+    {
+      id: 'game_start',
+      message: 'Please type your session id to start a game:',
+      trigger: 'session_id',
+    },
+    {
+      id: 'session_id',
+      user: true,
+      trigger: 'session_id_response',
+    },
+    {
+      id: 'session_id_response',
+      component: <SessionResponse />,
+      waitAction: true,
+      trigger: 'cognie_game',
+    },
+    {
+      id: 'cognie_game',
+      component: <Game />,
+      waitAction: true,
+      trigger: '1',
+      end: true,
+    },
 ];
 
 const ThemedExample = () => (
   <ThemeProvider theme={otherFontTheme}>
     <React.StrictMode>
-      <ChatBot steps={steps} />
+      <ChatBot steps={steps} headerTitle="CognieApp" />
     </React.StrictMode>
   </ThemeProvider>
 );
