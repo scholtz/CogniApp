@@ -48,6 +48,7 @@ const steps = [
     },
     {
       id: '7',
+      user: true,
       options: [
           { value: 1, label: 'Healthy diet tips', trigger: '8' },
           { value: 3, label: 'Watch info videos', trigger: '10' },
@@ -140,7 +141,7 @@ const steps = [
 const ThemedExample = () => (
   <ThemeProvider theme={otherFontTheme}>
     <React.StrictMode>
-      <ChatBot steps={steps} headerTitle="CognieApp" />
+      <ChatBot steps={steps} headerTitle="CognieApp" recognitionEnable={true} />
     </React.StrictMode>
   </ThemeProvider>
 );
