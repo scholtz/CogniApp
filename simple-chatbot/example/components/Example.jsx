@@ -48,7 +48,6 @@ const steps = [
     },
     {
       id: '7',
-      user: true,
       options: [
           { value: 1, label: 'Healthy diet tips', trigger: '8' },
           { value: 3, label: 'Watch info videos', trigger: '10' },
