@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emotiv2GoogleFit", "Emotiv2GoogleFit.csproj", "{24615742-CAD9-4CF9-93E7-D6DD3B64224B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24615742-CAD9-4CF9-93E7-D6DD3B64224B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24615742-CAD9-4CF9-93E7-D6DD3B64224B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24615742-CAD9-4CF9-93E7-D6DD3B64224B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24615742-CAD9-4CF9-93E7-D6DD3B64224B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB8B2D2D-B21D-4161-A697-D9CFD6D18BA7}
+	EndGlobalSection
+EndGlobal
