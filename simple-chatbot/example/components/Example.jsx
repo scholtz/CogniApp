@@ -114,8 +114,10 @@ const steps = [
     },
     {
       id: 'game_start',
-      message: 'Please type your session id to start a game:',
-      trigger: 'session_id',
+      component: (
+          <a href="http://scholtz.sk:8080/" target="_blank">So let's start! Tap here!</a>
+        ),
+      trigger: 'delayed',
     },
     {
       id: 'session_id',
@@ -130,7 +132,9 @@ const steps = [
     },
     {
       id: 'cognie_game',
-      component: <Game />,
+      component: (
+          <a href="http://scholtz.sk:8080/" target="_blank">START</a>
+        ),
       waitAction: true,
       trigger: '1',
       end: true,
