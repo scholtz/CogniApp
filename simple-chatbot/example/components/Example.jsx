@@ -28,7 +28,7 @@ const steps = [
       options: [
           { value: 1, label: 'Great', trigger: '3' },
           { value: 2, label: 'So so', trigger: '4' },
-          { value: 3, label: 'Not good', trigger: '12' }
+          { value: 3, label: 'Not good', trigger: '4' }
         ]
     },
     {
@@ -50,7 +50,6 @@ const steps = [
       id: '7',
       options: [
           { value: 1, label: 'Healthy diet tips', trigger: '8' },
-          { value: 2, label: 'Physical exercise tips', trigger: '4' },
           { value: 3, label: 'Watch info videos', trigger: '10' },
           { value: 4, label: 'Cognie Game', trigger: 'game_start' },
         ]
@@ -83,13 +82,23 @@ const steps = [
         id: '5',
         component: (
             <iframe width="560" height="315" src="https://www.youtube.com/embed/3M5pSb9SRJU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        )
+        ),
+        trigger: 'delayed'
     },
     {
         id: '11',
         component: (
             <iframe width="560" height="315" src="https://www.youtube.com/embed/3wrWudX9Kh0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        )
+        ),
+        trigger: 'delayed'
+    },
+    {
+      id: 'delayed',
+      options: [
+          { value: 1, label: 'Let\'s continue', trigger: '7' },
+          { value: 2, label: 'Thanks, enough for today.', trigger: '13' }
+      ],
+      delay: 20000
     },
     {
       id: '12',
@@ -100,12 +109,15 @@ const steps = [
     },
     {
       id: '13',
-      message: 'See you soon.'
+      message: 'See you soon. I just leave here a few tips.',
+      trigger: '7'
     },
     {
       id: 'game_start',
-      message: 'Please type your session id to start a game:',
-      trigger: 'session_id',
+      component: (
+          <a href="http://scholtz.sk:8080/" target="_blank">So let's start! Tap here!</a>
+        ),
+      trigger: 'delayed',
     },
     {
       id: 'session_id',
@@ -120,7 +132,9 @@ const steps = [
     },
     {
       id: 'cognie_game',
-      component: <Game />,
+      component: (
+          <a href="http://scholtz.sk:8080/" target="_blank">START</a>
+        ),
       waitAction: true,
       trigger: '1',
       end: true,
@@ -130,7 +144,7 @@ const steps = [
 const ThemedExample = () => (
   <ThemeProvider theme={otherFontTheme}>
     <React.StrictMode>
-      <ChatBot steps={steps} headerTitle="CognieApp" />
+      <ChatBot steps={steps} headerTitle="CognieApp" recognitionEnable={true} />
     </React.StrictMode>
   </ThemeProvider>
 );
